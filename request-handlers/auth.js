@@ -12,6 +12,7 @@ module.exports = function(dbUrl) {
       var users = db.collection("users");
 
       users.find({ "token": token }).toArray(function(error, docs) {
+        db.close();
         if(docs.length === 0) {
           send(false);
           return;

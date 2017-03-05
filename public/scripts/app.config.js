@@ -8,7 +8,23 @@ angular.
         }).
         when("/login", {
           templateUrl: "/templates/login.template.html",
-          controller: "loginCtrl"
+          controller: "loginCtrl",
+          resolve: {
+            authed: function($location, $cookies, $http) {
+              $http.post("/auth", { token: $cookies.get("token") })
+                .success(function(data, status, headers, config) {
+                  if(data.auth) {
+                    $location.url("/dashboard");
+                    return;
+                  }
+                })
+                .error(function(data, status, headers, config) {
+                  console.log("Error during auth request.");
+                  $location.url("/login");
+                  return;
+                });
+            }
+          }
         }).
         when("/dashboard", {
           templateUrl: "/templates/dashboard.template.html",

@@ -24,6 +24,7 @@ module.exports = function(dbUrl) {
       var users = db.collection("users");
 
       users.find({ "username": username, "passwordHash": passwordHash }).toArray(function(error, docs) {
+        db.close();
         if(docs.length === 0) {
           send(invalidAuth);
           return;
