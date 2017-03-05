@@ -1,8 +1,9 @@
 {
   "name": "imts",
-  "version": 0.1,
+  "version": 1.0,
   "dependencies": {
     "angular": "^1.6.2",
+    "body-parser": "^1.17.0",
     "express": "^4.15.0",
     "mongodb": "^2.2.24"
   }
