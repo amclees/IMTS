@@ -9,15 +9,15 @@ usr.insert([
     token: "7cf2e5f72d3e144cad58f95214f2dd20ad8f9979f34d561433a31dacbc16071b",
     isPhysician: false,
     data: {
-      (new Date(2017, 2, 27, 14, 24, 0)): {
+      "2017-02-27": {
         question1: 0.3,
         question2: true
       },
-      (new Date(2017, 3, 2, 3, 35, 0)): {
-        question1: 0.34
+      "2017-03-01": {
+        question1: 0.34,
         question2: true
       },
-      (new Date(2017, 3, 5, 2, 13, 0)): {
+      "2017-03-03": {
         question1: 0,
         question2: false
       }
@@ -29,11 +29,11 @@ usr.insert([
     token: "31ce44f0243fb550a7748ffe12e0fbb3b6c0f9f3210f400c70fdf2ba05ffc867",
     isPhysician: false,
     data: {
-      (new Date(2017, 2, 27, 15, 17, 0)): {
+      "2017-03-01": {
         question1: 0.9,
         question2: true
       },
-      (new Date(2017, 3, 5, 8, 37, 0)): {
+      "2017-03-03": {
         question1: 1,
         question2: true
       }
@@ -49,4 +49,5 @@ usr.insert([
       "impatient"
     ]
   }
-]);
+]
+);
