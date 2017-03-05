@@ -13,8 +13,7 @@ var authFunction = function($location, $cookies, $http) {
   });
 }
 
-angular.
-  module("imts").
+app.
   config(["$locationProvider", "$routeProvider",
     function config($locationProvider, $routeProvider) {
       $routeProvider.

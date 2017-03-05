@@ -16,6 +16,7 @@ app.use(bodyParser.json());
 
 app.post("/login", loginHandler(dbUrl));
 app.post("/auth", authHandler(dbUrl));
+app.post("/test-submit", test-submit(dbUrl))
 
 var port = 3000;
 app.listen(port, function () {
