@@ -1,0 +1,17 @@
+<!--Thanks to https://github.com/angular-slider/angularjs-slider -->
+
+<form>
+  <div class="form-group">
+    <label for="q1">How are you feeling today?</label>
+    <input type="text" class="form-control required-field" id="q1" ng-model="q1" placeholder="Answer 1" required />
+  </div>
+  <div class="form-group">
+    <label for="q2">Rate your day from 1-100!</label>
+	<div>
+    	<rzslider
+         	rz-slider-model="slider.value"
+         	rz-slider-options="slider.options"></rzslider>
+	</div>
+  </div>
+  <button class="btn btn-success" ng-click="submit()">Submit</button>
+</form>

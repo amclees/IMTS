@@ -1,6 +1,6 @@
 {
   "name": "imts",
-  "version": 1.0,
+  "version": "1.0.0",
   "dependencies": {
     "angular": "^1.6.2",
     "body-parser": "^1.17.0",
