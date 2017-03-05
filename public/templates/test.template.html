@@ -3,32 +3,33 @@
 <form>
   <div class="form-group">
     What kind of work do you do?<br>
-    <input type="text" name="1work"/><br>
-    <input type="checkbox" name="1work" id="1none" value="1none"> I am currently unemployed<br>
+    <input type="text" ng-model="work"/><br>
+    <input type="checkbox" ng-model="work"> I am currently unemployed
+    <br>
   </div>
   <div class="form-group">
     How long have you been working at your current job? (in months)<br>
-    <input type="text" name="1time"/><br>
+    <input type="text" ng-model="time"/><br>
   </div>
   <div class="form-group">
     Why did you leave your last job?<br>
-    <input type="text" name="1leave"/><br>
+    <input type="text" ng-model="leave"/><br>
   </div>
   <div class="form-group">
     Have you always done that kind of work?<br>
-    <input type="text" name="1past"/><br>
+    <input type="text" ng-model="past"/><br>
   </div>
   <div class="form-group">
     Why is that?<br>
-    <input type="text" name="1nwhy"/><br>
+    <input type="text" ng-model="nwhy"/><br>
   </div>
   <div class="form-group">
     What kind of work have you done before?<br>
-    <input type="text" name="1nwork"/><br>
+    <input type="text" ng-model="nwork"/><br>
   </div>
   <div class="form-group">
     How are you supporting yourself now?<br>
-    <input type="text" name="1support"/><br>
+    <input type="text" ng-model="support"/><br>
   </div>
   <button class="btn btn-success" ng-click="submit()">Submit</button>
 </form>
