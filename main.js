@@ -3,6 +3,9 @@ var mongo = require("mongodb").MongoClient;
 
 var loginHandler = require("./request-handlers/login.js");
 var authHandler = require("./request-handlers/auth.js");
+var testSubmit = require("./request-handlers/test-submit.js");
+var formAllowance = require("./request-handlers/form-allowance.js");
+var getPatients = require("./request-handlers/get-patients.js");
 var bodyParser = require('body-parser');
 var app = express();
 
@@ -16,7 +19,9 @@ app.use(bodyParser.json());
 
 app.post("/login", loginHandler(dbUrl));
 app.post("/auth", authHandler(dbUrl));
-app.post("/test-submit", test-submit(dbUrl))
+app.post("/test-submit", testSubmit(dbUrl));
+app.post("/form-allowance", formAllowance(dbUrl));
+app.post("/get-patients", getPatients(dbUrl));
 
 var port = 3000;
 app.listen(port, function () {

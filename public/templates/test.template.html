@@ -1,35 +1,39 @@
 <!--Thanks to https://github.com/angular-slider/angularjs-slider -->
 
-<form>
+<button ng-click="logout()" class="btn btn-danger">Log Out</button>
+<div class="jumbotron" ng-hide="!formTaken">
+  <h2>You have already taken this test recently. <small>Please try again later.</small></h2>  
+</div>
+<form ng-model="form" name="form" ng-hide="formTaken">
   <div class="form-group">
     What kind of work do you do?<br>
-    <input type="text" ng-model="work"/><br>
-    <input type="checkbox" ng-model="work"> I am currently unemployed
-    <br>
+    <input type="text" ng-model="workType"/><br>
+    <input type="checkbox" ng-model="isUnemployed"> I am currently unemployed
+    <br />
   </div>
   <div class="form-group">
     How long have you been working at your current job? (in months)<br>
-    <input type="text" ng-model="time"/><br>
+    <input type="number" ng-model="monthsAtCurrentJob" required /><br>
   </div>
   <div class="form-group">
-    Why did you leave your last job?<br>
-    <input type="text" ng-model="leave"/><br>
+    How many months ago did you leave your last job?<br>
+    <input type="number" ng-model="monthsSincePreviousJob" required /><br>
   </div>
   <div class="form-group">
     Have you always done that kind of work?<br>
-    <input type="text" ng-model="past"/><br>
+    <input type="checkbox" ng-model="workUnchanged" /><br>
   </div>
   <div class="form-group">
     Why is that?<br>
-    <input type="text" ng-model="nwhy"/><br>
+    <input type="text" ng-model="careerReason" required /><br>
   </div>
   <div class="form-group">
     What kind of work have you done before?<br>
-    <input type="text" ng-model="nwork"/><br>
+    <input type="text" ng-model="workExperience" required /><br>
   </div>
   <div class="form-group">
     How are you supporting yourself now?<br>
-    <input type="text" ng-model="support"/><br>
+    <input type="text" ng-model="supportMethod" required /><br>
   </div>
-  <button class="btn btn-success" ng-click="submit()">Submit</button>
+  <button class="btn btn-success" ng-click="form.$valid && submit()">Submit</button>
 </form>

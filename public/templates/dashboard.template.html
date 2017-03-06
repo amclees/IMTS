@@ -1,10 +1,12 @@
 <p>You are logged in as {{ username }}.</p>
 <button ng-click="logout()" class="btn btn-danger">Log Out</button>
-<div class="row">
-  <div class="col-md-5 jumbotron">
 
-  </div>
-  <div class="col-md-5 jumbotron">
+<br />
 
+<h3>Patients</h3>
+<hr />
+<div class="list-group">
+  <div ng-repeat="patient in patients">
+    <a ng-href="/#/patient/{{ patient.username }}" class="list-group-item list-group-item-action">{{ patient.username }}</a>
   </div>
 </div>

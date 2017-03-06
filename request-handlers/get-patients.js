@@ -22,22 +22,16 @@ module.exports = function(dbUrl) {
     mongo.connect(dbUrl, function(error, db) {
       var users = db.collection("users");
 
-      var addResponse = function(user) {
-        var data = user.data;
-        var date = new Date();
-        data[date.toString()] = {
-           "workType": body.answers.workType,
-           "isUnemployed": body.answers.isUnemployed,
-      		 "monthsAtCurrentJob": body.answers.monthsAtCurrentJob,
-      		 "monthsSincePreviousJob": body.answers.monthsSincePreviousJob,
-      		 "workUnchanged": body.answers.workUnchanged,
-      		 "careerReason": body.answers.careerReason,
-      		 "workExperience": body.answers.workExperience,
-      	   "supportMethod": body.answers.supportMethod
-        };
-        users.update({ "token": token }, { $set: { "data": data } });
-        response.send(JSON.stringify(data));
-        db.close();
+      var grabPatients = function(user) {
+        if(!user.isPhysician) {
+          send(failure);
+        } else {
+          var patientNames = user.patients;
+
+          users.find({ "username": { $in: patientNames } }).toArray(function(error, docs) {
+            response.send(JSON.stringify(docs));
+          });
+        }
       }
 
       users.find({ "token": token }).toArray(function(error, docs) {
@@ -51,7 +45,7 @@ module.exports = function(dbUrl) {
           send(failure);
           return;
         } else {
-          addResponse(docs[0]);
+          grabPatients(docs[0]);
           return;
         }
       });

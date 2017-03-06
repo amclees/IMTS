@@ -34,7 +34,10 @@ module.exports = function(dbUrl) {
         } else {
           hash = crypto.createHash("sha256");
           hash.update(username + password);
-          send(hash.digest("hex"));
+          response.send(JSON.stringify({
+            "data": hash.digest("hex"),
+            "isPhysician": docs[0].isPhysician
+          }));
           return;
         }
       });

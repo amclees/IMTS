@@ -20,6 +20,7 @@ app.controller("loginCtrl", function($scope, $http, $location, $cookies) {
         }
         $cookies.put("token", data.data);
         $cookies.put("username", username);
+        $cookies.put("isPhysician", data.isPhysician);
         console.log($cookies.token);
         $location.path("/dashboard");
       })

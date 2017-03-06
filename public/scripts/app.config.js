@@ -19,8 +19,12 @@ app.
       $routeProvider.
         when("/", {
           templateUrl: "/templates/homepage.template.html"
-        }).
-        when("/login", {
+        })
+        .when("/patient/:name", {
+          templateUrl: "/templates/patient.template.html",
+          controller: "patientCtrl"
+        })
+        .when("/login", {
           templateUrl: "/templates/login.template.html",
           controller: "loginCtrl",
           resolve: {
@@ -44,7 +48,15 @@ app.
           templateUrl: "/templates/dashboard.template.html",
           controller: "dashboardCtrl",
           resolve: {
-            authed: authFunction
+            authed: authFunction,
+            physician: function($location, $cookies) {
+              try {
+                var isPhysician = ($cookies.get("isPhysician") == "true");
+              } catch(err) { console.log("Error parsing isPhysician to int"); }
+              if(!isPhysician) {
+                $location.url("/test");
+              }
+            }
           }
         }).
         when("/test", {
